@@ -3,20 +3,28 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start:client": "cd client && npm run dev",
+    "compile": "truffle compile",
+    "migrate": "truffle migrate",
+    "console": "truffle console",
+    "verify": "node scripts/verifyDeployment.js",
+    "test": "truffle test",
+    "dev": "concurrently \"npm run start:client\"",
+    "postmigrate": "xcopy /s /y build\\contracts client\\src\\contracts\\"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "description": "",
   "devDependencies": {
+    "@truffle/contract": "^4.6.11",
     "bootstrap": "^5.3.3",
     "chai": "^4.4.1",
     "chai-as-promised": "^7.1.1",
     "chai-bignumber": "^3.0.0",
+    "concurrently": "^9.1.2",
     "lite-server": "^2.6.1",
     "nodemon": "^3.0.3",
-    "truffle": "^5.11.5",
-    "@truffle/contract": "^4.6.11"
+    "truffle": "^5.11.5"
   }
 }
